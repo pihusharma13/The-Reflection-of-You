@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://b62de7vq6o71g"]
+
+[ext_resource type="Texture2D" uid="uid://b4ebb4ty5d0rv" path="res://Assets/reflection.png" id="1_w31pl"]
+[ext_resource type="Texture2D" uid="uid://df1gwavuqaas5" path="res://Assets/start_reflection_sprite_sheet.png" id="2_ekrfg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp2oq"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(0, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yosvi"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(0, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2qps"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(200, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekrfg"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(400, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eqdi"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(600, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu0ss"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(800, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aagf"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(1000, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyk5u"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(1200, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwqts"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(1400, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th2ad"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(1600, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh4d7"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(1800, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv7gn"]
+atlas = ExtResource("2_ekrfg")
+region = Rect2(2000, 0, 200, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3eqdi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp2oq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yosvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2qps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekrfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eqdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu0ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aagf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyk5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwqts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th2ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh4d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv7gn")
+}],
+"loop": false,
+"name": &"sink",
+"speed": 10.0
+}]
+
+[node name="Title" type="Control" unique_id=700140255]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Reflection" type="Sprite2D" parent="." unique_id=787914544]
+position = Vector2(320, 132)
+texture = ExtResource("1_w31pl")
+
+[node name="Button" type="Button" parent="." unique_id=1094100153]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 226.99998
+offset_top = 226.0
+offset_right = 234.99998
+offset_bottom = 234.0
+scale = Vector2(23.574532, 5.764047)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button" unique_id=2094788747]
+position = Vector2(4.0297728, 0.17348659)
+scale = Vector2(0.042418662, 0.17348923)
+sprite_frames = SubResource("SpriteFrames_3eqdi")
+animation = &"sink"
+autoplay = "default"
+
+[connection signal="button_down" from="Button" to="Button/AnimatedSprite2D" method="play" binds= ["sink"]]
