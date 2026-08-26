@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="A Reflection of You"
-run/main_scene="uid://yo61n5fgutbg"
+run/main_scene="uid://dprlkc1vseb5s"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
