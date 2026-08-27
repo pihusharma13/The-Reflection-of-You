@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dmrttom7o37cv"]
+
+[ext_resource type="Script" uid="uid://dusb1i6t6j1ti" path="res://Scripts/finish_line.gd" id="1_fpin6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e5oy"]
+
+[node name="FinishLine" type="Area2D" unique_id=2137915762]
+script = ExtResource("1_fpin6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=770453290]
+shape = SubResource("RectangleShape2D_3e5oy")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=612956419]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.80093426, 0.7507022, 0.33412525, 1)

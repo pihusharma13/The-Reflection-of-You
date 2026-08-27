@@ -91,7 +91,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"start button",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [node name="MainMenu" type="Control" unique_id=912797566]
