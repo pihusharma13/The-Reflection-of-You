@@ -121,7 +121,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fkybt")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -174,7 +174,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_olqyp")
 }],
-"loop": 1,
+"loop": true,
 "name": &"run",
 "speed": 5.0
 }, {
@@ -191,19 +191,29 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p1odr")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(10, 10)
+
 [node name="Player" type="CharacterBody2D" unique_id=1258507066]
+collision_layer = 2
 script = ExtResource("1_cvnsp")
 dash_curve = SubResource("Curve_ypfnu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1686822830]
-position = Vector2(-0.5, 4.5)
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=119086545]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"run"
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=1424137057]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_cvnsp")
+target_position = Vector2(0, 0)
+max_results = 1

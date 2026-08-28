@@ -1,5 +1,7 @@
 extends CharacterBody2D
  
+@export var player_height := 19.0
+
 @export var walk_speed := 150.0
 @export var run_speed := 250.0
 @export_range(0, 1) var acceleration := 0.1
@@ -18,6 +20,7 @@ extends CharacterBody2D
 @export var reflection_y : float = 193.0
  
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var shapecast: ShapeCast2D = $ShapeCast2D
  
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -76,8 +79,7 @@ func _physics_process(delta):
 		dash_timer = dash_cooldown
 	
 	if Input.is_action_just_pressed("reflect") and is_on_floor():
-		global_position.y = -(global_position.y - reflection_y) + reflection_y
-		up_direction.y *= -1
+		flip()
  
 	# Performs actual dash
 	if is_dashing:
@@ -93,3 +95,11 @@ func _physics_process(delta):
 		dash_timer -= delta
  
 	move_and_slide()
+
+func flip() -> void:
+	global_position.y = -(global_position.y - reflection_y) + reflection_y
+	up_direction.y *= -1
+	shapecast.force_shapecast_update()
+	while shapecast.get_collision_count() > 0:
+		position += up_direction * player_height
+		shapecast.force_shapecast_update()
