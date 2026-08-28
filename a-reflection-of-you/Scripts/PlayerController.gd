@@ -1,22 +1,29 @@
 extends CharacterBody2D
  
-@export var walk_speed = 150.0
-@export var run_speed = 250.0
-@export_range(0, 1) var acceleration = 0.1
-@export_range(0, 1) var deceleration = 0.1
+@export var walk_speed := 150.0
+@export var run_speed := 250.0
+@export_range(0, 1) var acceleration := 0.1
+@export_range(0, 1) var deceleration := 0.1
  
-@export var jump_force = -400.0
-@export_range(0, 1) var decelerate_on_jump_release = 0.5
+@export var jump_force := -400.0
+@export_range(0, 1) var decelerate_on_jump_release := 0.5
+
+@export var coyote_time := 0.1
  
-@export var dash_speed = 1000.0
-@export var dash_max_distance = 50.0
+@export var dash_speed := 1000.0
+@export var dash_max_distance := 50.0
 @export var dash_curve : Curve
-@export var dash_cooldown = 1.0
+@export var dash_cooldown := 1.0
+
+@export var reflection_y : float = 193.0
  
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
  
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
- 
+
+var has_jumped := false
+var cur_coyote_time := coyote_time
+
 var is_dashing = false
 var dash_start_position = 0
 var dash_direction = 0
@@ -24,7 +31,11 @@ var dash_timer = 0
  
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if is_on_floor():
+		has_jumped = false
+		cur_coyote_time = coyote_time
+	else:
+		if cur_coyote_time > 0: cur_coyote_time -= delta
 		velocity.y += gravity * delta
  
 	var speed
@@ -49,7 +60,8 @@ func _physics_process(delta):
 			animated_sprite.play("idle")
  
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_wall()):
+	if Input.is_action_just_pressed("jump") and (cur_coyote_time > 0):
+		has_jumped = true
 		velocity.y = jump_force
 		# animated_sprite.play("Jump")
  

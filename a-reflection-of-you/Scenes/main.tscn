@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://q7owimu3gw8e" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://dsvk2r2pcrrde" path="res://Assets/Brackeys Sprite/world_tileset.png" id="2_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://cr1rxxfmr1h7g" path="res://Assets/city_bg.png" id="3_8gbba"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("2_bo1nx")
@@ -136,7 +137,8 @@ texture = ExtResource("2_bo1nx")
 [sub_resource type="TileSet" id="TileSet_yf5fn"]
 sources/0 = SubResource("TileSetAtlasSource_8gbba")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(1000000, 0.1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(21, 24.58332)
@@ -148,6 +150,7 @@ size = Vector2(31.875, 23.636444)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1940478076]
 visible = false
+position = Vector2(119, 178)
 tile_map_data = PackedByteArray("AAARAAsAAAADAAgAAAARAAoAAAADAAcAAAARAAkAAAADAAYAAAARAAgAAAADAAUAAAARAAcAAAADAAQAAAASAAgAAAAEAAUAAAASAAkAAAAEAAYAAAAQAAkAAAACAAYAAAAQAAgAAAACAAUAAAANAAwAAAAAAAAAAAAOAAwAAAAAAAAAAAAPAAwAAAAAAAAAAAAQAAwAAAAAAAAAAAARAAwAAAAAAAAAAAASAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAALAAwAAAAAAAAAAAAKAAwAAAAAAAAAAAAJAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAHAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAFAAwAAAAAAAAAAAATAAwAAAAAAAAAAAAUAAwAAAAAAAAAAAAQAA0AAAAAAAEAAAAPAA0AAAAAAAEAAAAOAA0AAAAAAAEAAAANAA0AAAAAAAEAAAAMAA0AAAAAAAEAAAALAA0AAAAAAAEAAAAKAA0AAAAAAAEAAAAJAA0AAAAAAAEAAAAIAA0AAAAAAAEAAAAHAA0AAAAAAAEAAAAGAA0AAAAAAAEAAAAFAA0AAAAAAAEAAAARAA0AAAAAAAEAAAASAA0AAAAAAAEAAAATAA0AAAAAAAEAAAAUAA0AAAAAAAEAAAAUAA4AAAAIAAEAAAATAA4AAAAIAAEAAAASAA4AAAAIAAEAAAARAA4AAAAIAAEAAAAQAA4AAAAIAAEAAAAPAA4AAAAIAAEAAAAOAA4AAAAIAAEAAAANAA4AAAAIAAEAAAAMAA4AAAAIAAEAAAALAA4AAAAIAAEAAAAKAA4AAAAIAAEAAAAJAA4AAAAIAAEAAAAIAA4AAAAIAAEAAAAHAA4AAAAIAAEAAAAGAA4AAAAIAAEAAAAFAA4AAAAIAAEAAAAFAA8AAAAGAAIAAAAGAA8AAAAGAAIAAAAHAA8AAAAGAAIAAAAIAA8AAAAGAAIAAAAJAA8AAAAGAAIAAAAKAA8AAAAGAAIAAAALAA8AAAAGAAIAAAAMAA8AAAAGAAIAAAANAA8AAAAGAAIAAAAOAA8AAAAGAAIAAAAPAA8AAAAGAAIAAAAQAA8AAAAGAAIAAAARAA8AAAAGAAIAAAASAA8AAAAGAAIAAAATAA8AAAAGAAIAAAAUAA8AAAAGAAIAAAA=")
 tile_set = SubResource("TileSet_yf5fn")
 
@@ -165,7 +168,7 @@ drag_vertical_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=620661239]
 position = Vector2(220, 193)
-shape = SubResource("WorldBoundaryShape2D_g4v7s")
+shape = SubResource("RectangleShape2D_8gbba")
 
 [node name="Ground" type="ColorRect" parent="StaticBody2D" unique_id=619392273]
 offset_left = 112.0
@@ -174,6 +177,7 @@ offset_right = 152.0
 offset_bottom = 232.0
 scale = Vector2(23.174902, 0.040002465)
 color = Color(0.62652254, 0.97963315, 0.7079042, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Water" type="ColorRect" parent="StaticBody2D" unique_id=83637979]
 offset_left = 112.0
@@ -182,6 +186,7 @@ offset_right = 152.0
 offset_bottom = 234.0
 scale = Vector2(14.947389, 0.037906345)
 color = Color(0.57143795, 0.9547184, 0.99073917, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1955727910]
 position = Vector2(280, 149.00002)
@@ -198,6 +203,7 @@ offset_top = -9.953687
 offset_right = 11.0
 offset_bottom = 10.046313
 scale = Vector2(1.008868, 1.2331697)
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1669291264]
 position = Vector2(-25.999992, 159)
@@ -211,3 +217,39 @@ shape = SubResource("RectangleShape2D_bo1nx")
 offset_right = 32.0
 offset_bottom = 25.0
 color = Color(1, 0.4509804, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=616628933]
+position = Vector2(-126, 120)
+scale = Vector2(1.28, 0.43999755)
+
+[node name="Platform" type="CollisionShape2D" parent="StaticBody2D4" unique_id=866644016]
+position = Vector2(16.09375, 13.181946)
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4" unique_id=950788376]
+offset_right = 32.0
+offset_bottom = 25.0
+color = Color(1, 0.4509804, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=217376886]
+position = Vector2(-240, 69)
+scale = Vector2(1.28, 0.43999755)
+
+[node name="Platform" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1165558438]
+position = Vector2(16.09375, 13.181946)
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D5" unique_id=1547522029]
+offset_right = 32.0
+offset_bottom = 25.0
+color = Color(1, 0.4509804, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1359881986]
+layer = -1
+
+[node name="CityBg" type="Sprite2D" parent="CanvasLayer" unique_id=1013775895]
+position = Vector2(119, 178)
+texture = ExtResource("3_8gbba")
