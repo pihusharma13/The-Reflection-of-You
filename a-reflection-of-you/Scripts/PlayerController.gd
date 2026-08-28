@@ -36,7 +36,7 @@ func _physics_process(delta):
 		cur_coyote_time = coyote_time
 	else:
 		if cur_coyote_time > 0: cur_coyote_time -= delta
-		velocity.y += gravity * delta
+		velocity.y -= gravity * delta * up_direction.y
  
 	var speed
 	if Input.is_action_pressed("run"):
@@ -62,7 +62,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and cur_coyote_time > 0:
 		has_jumped = true
-		velocity.y = jump_force
+		velocity.y = jump_force * -1 * up_direction.y
 		# animated_sprite.play("Jump")
  
 	if Input.is_action_just_released("jump") and velocity.y < 0:
@@ -74,6 +74,10 @@ func _physics_process(delta):
 		dash_start_position = position.x
 		dash_direction = direction
 		dash_timer = dash_cooldown
+	
+	if Input.is_action_just_pressed("reflect") and is_on_floor():
+		global_position.y = -(global_position.y - reflection_y) + reflection_y
+		up_direction.y *= -1
  
 	# Performs actual dash
 	if is_dashing:
