@@ -60,7 +60,7 @@ func _physics_process(delta):
 			animated_sprite.play("idle")
  
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (cur_coyote_time > 0):
+	if Input.is_action_just_pressed("jump") and cur_coyote_time > 0:
 		has_jumped = true
 		velocity.y = jump_force
 		# animated_sprite.play("Jump")

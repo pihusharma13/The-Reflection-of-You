@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://q7owimu3gw8e" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://dsvk2r2pcrrde" path="res://Assets/Brackeys Sprite/world_tileset.png" id="2_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://cr1rxxfmr1h7g" path="res://Assets/city_bg.png" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://b1ko8pfq1fyg6" path="res://Scripts/follow_camera_pos.gd" id="3_kry3j"]
+[ext_resource type="Texture2D" uid="uid://bn0uxbdr4dt08" path="res://Assets/reflection_bg.png" id="4_jjvhh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("2_bo1nx")
@@ -247,9 +249,30 @@ offset_bottom = 25.0
 color = Color(1, 0.4509804, 1, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1359881986]
-layer = -1
+[node name="FollowCameraX" type="Node2D" parent="." unique_id=1099314017]
+position = Vector2(220, 193)
+script = ExtResource("3_kry3j")
+follow_y = false
 
-[node name="CityBg" type="Sprite2D" parent="CanvasLayer" unique_id=1013775895]
-position = Vector2(119, 178)
+[node name="ColorRect" type="ColorRect" parent="FollowCameraX" unique_id=236580037]
+clip_children = 1
+z_index = -100
+offset_left = -220.0
+offset_top = -616.0
+offset_right = 419.0
+
+[node name="CityBg" type="Sprite2D" parent="FollowCameraX/ColorRect" unique_id=1013775895]
+position = Vector2(319, 195)
 texture = ExtResource("3_8gbba")
+
+[node name="ColorRect2" type="ColorRect" parent="FollowCameraX" unique_id=2045950866]
+clip_children = 1
+z_index = -100
+offset_left = -220.0
+offset_right = 419.0
+offset_bottom = 1020.0
+
+[node name="ReflectionBg" type="Sprite2D" parent="FollowCameraX/ColorRect2" unique_id=384769975]
+position = Vector2(314, 386.5)
+scale = Vector2(1, 0.75878906)
+texture = ExtResource("4_jjvhh")
