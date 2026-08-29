@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bxpeoxx8hw47h"]
+
+[ext_resource type="FontFile" uid="uid://bdy22mdycgiwt" path="res://Assets/pixel_3/pixel.ttf" id="1_bw2rt"]
+[ext_resource type="Script" uid="uid://cvnnyrom2calp" path="res://Scripts/game_ui.gd" id="1_x63ue"]
+[ext_resource type="PackedScene" uid="uid://6x4r4nwgtvca" path="res://Scenes/win_screen.tscn" id="2_gjn1n"]
+[ext_resource type="Script" uid="uid://cd5iqnwl0cssc" path="res://Scripts/ui_timer.gd" id="2_xjnnq"]
+[ext_resource type="PackedScene" uid="uid://4q6jxxx12nho" path="res://Scenes/end_screen.tscn" id="3_xjnnq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_suota"]
+font = ExtResource("1_bw2rt")
+
+[node name="GameUi" type="Control" unique_id=1264809656]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x63ue")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1394756564]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1718336953]
+offset_left = 513.0
+offset_top = 2.0
+offset_right = 639.0
+offset_bottom = 44.0
+color = Color(0.74283564, 0.8700149, 0.9977303, 0.18431373)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect" unique_id=1294897460]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 4.0
+offset_right = 100.0
+offset_bottom = 34.0
+text = "33:33"
+label_settings = SubResource("LabelSettings_suota")
+script = ExtResource("2_xjnnq")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/ColorRect/Label" unique_id=644362981]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="EndScreen" parent="CanvasLayer" unique_id=757181837 instance=ExtResource("3_xjnnq")]
+process_mode = 3
+visible = false
+
+[node name="WinScreen" parent="CanvasLayer" unique_id=1383709395 instance=ExtResource("2_gjn1n")]
+process_mode = 3
+visible = false
+
+[connection signal="timeout" from="CanvasLayer/ColorRect/Label/Timer" to="." method="_on_timer_timeout"]

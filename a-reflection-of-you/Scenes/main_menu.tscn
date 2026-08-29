@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://dprlkc1vseb5s"]
+
+[ext_resource type="Texture2D" uid="uid://b2fru8a2j1psi" path="res://Assets/icon.svg" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://bq5bpjp54pks" path="res://Assets/Main Screen/start_reflection_sprite_sheet.png" id="1_28flt"]
+[ext_resource type="Script" uid="uid://k7rt4xyijfeo" path="res://Scripts/main_menu.gd" id="1_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://bmdajdx2d02ql" path="res://Assets/Main Screen/reflection.png" id="2_ce3w2"]
+[ext_resource type="AudioStream" uid="uid://cu6eva0e0s5up" path="res://Assets/Audio/Mainmenunya!.wav" id="5_n45e2"]
+[ext_resource type="Script" uid="uid://n7f6w2jxhgcc" path="res://Scripts/music_player.gd" id="6_opfnp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("1_1ehe0")
+modulate_color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1dhk"]
+atlas = ExtResource("1_28flt")
+region = Rect2(0, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5egv6"]
+atlas = ExtResource("1_28flt")
+region = Rect2(200, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtepg"]
+atlas = ExtResource("1_28flt")
+region = Rect2(400, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dnnj"]
+atlas = ExtResource("1_28flt")
+region = Rect2(600, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3bi6"]
+atlas = ExtResource("1_28flt")
+region = Rect2(800, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyh8j"]
+atlas = ExtResource("1_28flt")
+region = Rect2(1000, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujyyl"]
+atlas = ExtResource("1_28flt")
+region = Rect2(1200, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkpwh"]
+atlas = ExtResource("1_28flt")
+region = Rect2(1400, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nkqq"]
+atlas = ExtResource("1_28flt")
+region = Rect2(1600, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehtkc"]
+atlas = ExtResource("1_28flt")
+region = Rect2(1800, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dk6o"]
+atlas = ExtResource("1_28flt")
+region = Rect2(2000, 0, 200, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1dhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5egv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtepg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dnnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3bi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyh8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujyyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkpwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nkqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehtkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dk6o")
+}],
+"loop": 0,
+"name": &"start button",
+"speed": 15.0
+}]
+
+[node name="MainMenu" type="Control" unique_id=912797566]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ce3w2")
+
+[node name="Background" type="Panel" parent="." unique_id=832858584]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g4v7s")
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1719354868]
+position = Vector2(322, 174)
+texture = ExtResource("2_ce3w2")
+
+[node name="Button" type="Button" parent="." unique_id=469624446]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.000015
+offset_top = 96.0
+offset_right = -56.729065
+offset_bottom = 144.10577
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.7677045, 0.8938633)
+
+[node name="Button Animation" type="AnimatedSprite2D" parent="Button" unique_id=668408328]
+position = Vector2(20.030602, -3.9155731)
+scale = Vector2(0.20974454, 1.1187392)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"start button"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1552610231]
+stream = ExtResource("5_n45e2")
+autoplay = true
+script = ExtResource("6_opfnp")
+
+[connection signal="pressed" from="Button" to="." method="_on_start_button_pressed"]
