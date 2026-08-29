@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://dmrttom7o37cv"]
 
 [ext_resource type="Script" uid="uid://dusb1i6t6j1ti" path="res://Scripts/finish_line.gd" id="1_fpin6"]
+[ext_resource type="Texture2D" uid="uid://c1yt7e207eupq" path="res://Assets/Mirror.png" id="2_svule"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3e5oy"]
+size = Vector2(240, 116)
 
 [node name="FinishLine" type="Area2D" unique_id=2137915762]
 script = ExtResource("1_fpin6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=770453290]
+position = Vector2(10, -12)
 shape = SubResource("RectangleShape2D_3e5oy")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=612956419]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-color = Color(0.80093426, 0.7507022, 0.33412525, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1701073294]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_svule")

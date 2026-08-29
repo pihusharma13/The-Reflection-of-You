@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var win_screen : Control = $CanvasLayer/WinScreen
 @onready var end_screen : Control = $CanvasLayer/EndScreen
 @onready var timer_label : Label = $CanvasLayer/ColorRect/Label
