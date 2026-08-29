@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dprlkc1vseb5s"]
+[gd_scene format=3 uid="uid://bkx0kixhom56c"]
 
 [ext_resource type="Texture2D" uid="uid://b2fru8a2j1psi" path="res://Assets/icon.svg" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://bq5bpjp54pks" path="res://Assets/Main Screen/start_reflection_sprite_sheet.png" id="1_28flt"]
@@ -91,7 +91,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6dk6o")
 }],
-"loop": 0,
+"loop": false,
 "name": &"start button",
 "speed": 15.0
 }]
@@ -134,6 +134,7 @@ grow_vertical = 2
 scale = Vector2(4.7677045, 0.8938633)
 
 [node name="Button Animation" type="AnimatedSprite2D" parent="Button" unique_id=668408328]
+texture_filter = 1
 position = Vector2(20.030602, -3.9155731)
 scale = Vector2(0.20974454, 1.1187392)
 sprite_frames = SubResource("SpriteFrames_g4v7s")

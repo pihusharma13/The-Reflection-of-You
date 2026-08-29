@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bnw62fjxleofv"]
+[gd_scene format=3 uid="uid://bss38qjewg3yy"]
 
 [ext_resource type="PackedScene" uid="uid://bxpeoxx8hw47h" path="res://Scenes/game_ui.tscn" id="1_l2hsd"]
 [ext_resource type="Texture2D" uid="uid://dtdjerp27f1sr" path="res://Assets/Background 2.png" id="2_gmj0l"]
@@ -16,7 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://hvp6p75p5j73" path="res://Assets/Audio/1stpartRunrunrun!.wav" id="14_o85g7"]
 [ext_resource type="Script" uid="uid://n7f6w2jxhgcc" path="res://Scripts/music_player.gd" id="15_gmj0l"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3e5oy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmj0l"]
+size = Vector2(10000000, 0.01)
 
 [node name="Pilot Level" type="Node2D" unique_id=170259849]
 
@@ -26,8 +27,7 @@ finish_line = NodePath("../FinishLine")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1320707869]
 
 [node name="WorldBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=621307207]
-position = Vector2(0, -4)
-shape = SubResource("WorldBoundaryShape2D_3e5oy")
+shape = SubResource("RectangleShape2D_gmj0l")
 
 [node name="Ground" type="ColorRect" parent="StaticBody2D" unique_id=125551898]
 offset_left = -1200.0
