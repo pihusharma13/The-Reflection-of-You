@@ -132,6 +132,7 @@ skew = -0.3490659
 [node name="Player" parent="." unique_id=1258507066 groups=["player"] instance=ExtResource("3_l2hsd")]
 top_level = true
 position = Vector2(-1020, -111.000015)
+collision_layer = 2
 walk_speed = 400.0
 run_speed = 650.0
 deceleration = 0.2

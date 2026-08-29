@@ -17,7 +17,7 @@ extends CharacterBody2D
 @export var dash_curve : Curve
 @export var dash_cooldown := 1.0
 
-@export var reflection_y : float = 193.0
+@export var reflection_y : float = 0.0
  
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var shapecast: ShapeCast2D = $ShapeCast2D
@@ -54,13 +54,13 @@ func _physics_process(delta):
 		animated_sprite.flip_h = direction == -1
 		if is_on_floor():
 			if Input.is_action_pressed("run"):
-				animated_sprite.play("run")
+				animated_sprite.play("player_run")
 			else:
-				animated_sprite.play("walk")
+				animated_sprite.play("player_run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, walk_speed * deceleration)
 		if is_on_floor():
-			animated_sprite.play("idle")
+			animated_sprite.play("player_idle")
  
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and cur_coyote_time > 0:
@@ -99,6 +99,7 @@ func _physics_process(delta):
 func flip() -> void:
 	global_position.y = -(global_position.y - reflection_y) + reflection_y
 	up_direction.y *= -1
+	animated_sprite.flip_v = !animated_sprite.flip_v
 	shapecast.force_shapecast_update()
 	while shapecast.get_collision_count() > 0:
 		position += up_direction * player_height

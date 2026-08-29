@@ -18,9 +18,8 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.43776822), -1.9481581, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36dho"]
-radius = 105.0
-height = 435.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dp3o"]
+size = Vector2(250, 460)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("2_6t5aa")
@@ -177,7 +176,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fkybt")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -194,7 +193,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8gxox")
 }],
-"loop": 1,
+"loop": true,
 "name": &"player_idle",
 "speed": 10.0
 }, {
@@ -220,7 +219,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wohnl")
 }],
-"loop": 1,
+"loop": true,
 "name": &"player_run",
 "speed": 10.0
 }, {
@@ -273,7 +272,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_olqyp")
 }],
-"loop": 1,
+"loop": true,
 "name": &"run",
 "speed": 5.0
 }, {
@@ -290,10 +289,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p1odr")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukyrk"]
+size = Vector2(150, 150)
 
 [node name="Player" type="CharacterBody2D" unique_id=1258507066]
 scale = Vector2(0.2, 0.2)
@@ -301,10 +303,14 @@ script = ExtResource("1_cvnsp")
 dash_curve = SubResource("Curve_ypfnu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1686822830]
-position = Vector2(-3, -3)
-shape = SubResource("CapsuleShape2D_36dho")
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_7dp3o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=119086545]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"player_idle"
-frame_progress = 0.11825775
+animation = &"player_run"
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=499953462]
+shape = SubResource("RectangleShape2D_ukyrk")
+target_position = Vector2(0, 0)
