@@ -45,7 +45,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, walk_speed * deceleration)
 		if is_on_floor():
-			animated_sprite.play("idle")
+			animated_sprite.play("player_idle")
  
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or is_on_wall()):
