@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://cyqlqwq14qxrt" path="res://Scripts/PlayerController.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dyw248aoocbao" path="res://Assets/Brackeys Sprite/knight.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bi28uvngvqy0a" path="res://Assets/PlayerSprite/run/Frame1.png" id="3_f1ek2"]
-[ext_resource type="Texture2D" uid="uid://nc7hgnwo16hf" path="res://Assets/PlayerSprite/idle/Frame1.png" id="3_ukyrk"]
-[ext_resource type="Texture2D" uid="uid://emwsni6op1ho" path="res://Assets/PlayerSprite/idle/Frame2.png" id="4_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://b7lmp0c572bxi" path="res://Assets/PlayerSprite/idle/Frame1.png" id="3_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://c64omgxf2smpa" path="res://Assets/PlayerSprite/idle/Frame2.png" id="4_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://ccleyhdlrlcyf" path="res://Assets/PlayerSprite/run/Frame2.png" id="4_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://cekeqapc6pur8" path="res://Assets/PlayerSprite/run/Frame3.png" id="5_gymyn"]
-[ext_resource type="Texture2D" uid="uid://cka1175ubxpuc" path="res://Assets/PlayerSprite/idle/Frame3.png" id="5_h4iuc"]
-[ext_resource type="Texture2D" uid="uid://bbm2ym2bk1os" path="res://Assets/PlayerSprite/idle/Frame4.png" id="6_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://bj0fmm7wrlhvg" path="res://Assets/PlayerSprite/idle/Frame3.png" id="5_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://c5j2kbalo56w3" path="res://Assets/PlayerSprite/idle/Frame4.png" id="6_fd4e3"]
 [ext_resource type="Texture2D" uid="uid://b41cby6i1m8qp" path="res://Assets/PlayerSprite/run/Frame4.png" id="6_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://cgvwktjfypm67" path="res://Assets/PlayerSprite/run/Frame5.png" id="7_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://bojx22a1ywctr" path="res://Assets/PlayerSprite/run/Frame6.png" id="8_7dp3o"]
@@ -40,19 +40,19 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36dho"]
 atlas = ExtResource("3_ukyrk")
-region = Rect2(0, 0, 1024, 1024)
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
 atlas = ExtResource("4_7dp3o")
-region = Rect2(0, 0, 1024, 1024)
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nv4vc"]
 atlas = ExtResource("5_h4iuc")
-region = Rect2(0, 0, 1024, 1024)
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8gxox"]
 atlas = ExtResource("6_fd4e3")
-region = Rect2(0, 0, 1024, 1024)
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
 atlas = ExtResource("3_f1ek2")
@@ -306,5 +306,5 @@ shape = SubResource("CapsuleShape2D_36dho")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=119086545]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"player_run"
-frame_progress = 0.7822118
+animation = &"player_idle"
+frame_progress = 0.11825775
