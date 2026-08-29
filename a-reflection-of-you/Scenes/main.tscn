@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dsvk2r2pcrrde" path="res://Assets/Brackeys Sprite/world_tileset.png" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dmrttom7o37cv" path="res://Scenes/finish_line.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bxpeoxx8hw47h" path="res://Scenes/game_ui.tscn" id="4_kry3j"]
+[ext_resource type="AudioStream" uid="uid://hvp6p75p5j73" path="res://Assets/Audio/1stpartRunrunrun!.wav" id="5_21xkr"]
+[ext_resource type="Script" uid="uid://n7f6w2jxhgcc" path="res://Scripts/music_player.gd" id="6_6bp64"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("2_bo1nx")
@@ -321,7 +323,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1632.8727, 181.15)
 
 [node name="Player" parent="." unique_id=1258507066 groups=["player"] instance=ExtResource("1_jjgbg")]
-position = Vector2(119, 178)
+position = Vector2(24.82203, 74.708015)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=511566540]
 zoom = Vector2(1.5, 1.5)
@@ -336,3 +338,8 @@ offset_top = 73.76546
 offset_right = 114.74628
 offset_bottom = 73.76546
 finish_line = NodePath("../FinishLine")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=1289478690]
+stream = ExtResource("5_21xkr")
+autoplay = true
+script = ExtResource("6_6bp64")

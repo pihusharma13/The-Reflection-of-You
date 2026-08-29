@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnw62fjxleofv"]
 
 [ext_resource type="PackedScene" uid="uid://bxpeoxx8hw47h" path="res://Scenes/game_ui.tscn" id="1_l2hsd"]
-[ext_resource type="Texture2D" uid="uid://bl6qqjbauntpu" path="res://Assets/Background 1.png" id="1_tiuc8"]
+[ext_resource type="Texture2D" uid="uid://dtdjerp27f1sr" path="res://Assets/Background 2.png" id="2_gmj0l"]
 [ext_resource type="Texture2D" uid="uid://b06sjq42qah38" path="res://Assets/Background Reflection.png" id="2_ught7"]
 [ext_resource type="PackedScene" uid="uid://q7owimu3gw8e" path="res://Scenes/player.tscn" id="3_l2hsd"]
 [ext_resource type="PackedScene" uid="uid://d0rpul5gtloqy" path="res://Scenes/Prefabs/building_2.tscn" id="4_ught7"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bmd6ll5mmwysh" path="res://Scenes/Prefabs/building_4.tscn" id="8_n1beo"]
 [ext_resource type="PackedScene" uid="uid://dx61ffm28jnan" path="res://Scenes/Prefabs/building_3_reflection.tscn" id="10_o85g7"]
 [ext_resource type="PackedScene" uid="uid://drwmluyaa5f08" path="res://Scenes/Prefabs/building_4_reflection.tscn" id="12_gmj0l"]
+[ext_resource type="AudioStream" uid="uid://hvp6p75p5j73" path="res://Assets/Audio/1stpartRunrunrun!.wav" id="14_o85g7"]
+[ext_resource type="Script" uid="uid://n7f6w2jxhgcc" path="res://Scripts/music_player.gd" id="15_gmj0l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3e5oy"]
 
@@ -20,30 +22,6 @@
 
 [node name="GameUi" parent="." unique_id=1264809656 node_paths=PackedStringArray("finish_line") instance=ExtResource("1_l2hsd")]
 finish_line = NodePath("../FinishLine")
-
-[node name="Background" type="Sprite2D" parent="." unique_id=1745110225]
-position = Vector2(978, -311)
-texture = ExtResource("1_tiuc8")
-
-[node name="Background2" type="Sprite2D" parent="." unique_id=2062607255]
-position = Vector2(978, 519)
-texture = ExtResource("2_ught7")
-
-[node name="Background3" type="Sprite2D" parent="." unique_id=792893290]
-position = Vector2(167, -312)
-texture = ExtResource("1_tiuc8")
-
-[node name="Background4" type="Sprite2D" parent="." unique_id=437124084]
-position = Vector2(167, 518)
-texture = ExtResource("2_ught7")
-
-[node name="Background5" type="Sprite2D" parent="." unique_id=195365017]
-position = Vector2(-637, -312)
-texture = ExtResource("1_tiuc8")
-
-[node name="Background6" type="Sprite2D" parent="." unique_id=793712615]
-position = Vector2(-637, 518)
-texture = ExtResource("2_ught7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1320707869]
 
@@ -54,7 +32,7 @@ shape = SubResource("WorldBoundaryShape2D_3e5oy")
 [node name="Ground" type="ColorRect" parent="StaticBody2D" unique_id=125551898]
 offset_left = -1200.0
 offset_top = 4.0
-offset_right = -1070.9811
+offset_right = -900.0
 offset_bottom = 44.000004
 scale = Vector2(23.174902, -0.23999754)
 color = Color(0.62652254, 0.97963315, 0.7079042, 1)
@@ -62,53 +40,117 @@ color = Color(0.62652254, 0.97963315, 0.7079042, 1)
 [node name="Water" type="ColorRect" parent="StaticBody2D" unique_id=1806848426]
 offset_left = -1200.0
 offset_top = 6.0
-offset_right = -999.9651
+offset_right = -900.0
 offset_bottom = 46.0
 scale = Vector2(14.947389, -0.2274217)
 color = Color(0.08124801, 0.67070794, 0.71896654, 1)
 
+[node name="Background" type="Node" parent="." unique_id=1110081618]
+
+[node name="Background1" type="Sprite2D" parent="Background" unique_id=1745110225]
+position = Vector2(717, -517)
+texture = ExtResource("2_gmj0l")
+
+[node name="Background2" type="Sprite2D" parent="Background" unique_id=2062607255]
+position = Vector2(731, 520)
+texture = ExtResource("2_ught7")
+
+[node name="Background3" type="Sprite2D" parent="Background" unique_id=792893290]
+position = Vector2(44, -517)
+texture = ExtResource("2_gmj0l")
+
+[node name="Background4" type="Sprite2D" parent="Background" unique_id=437124084]
+position = Vector2(167, 518)
+texture = ExtResource("2_ught7")
+
+[node name="Background5" type="Sprite2D" parent="Background" unique_id=195365017]
+position = Vector2(-632, -517)
+texture = ExtResource("2_gmj0l")
+
+[node name="Background6" type="Sprite2D" parent="Background" unique_id=793712615]
+position = Vector2(-637, 518)
+texture = ExtResource("2_ught7")
+
+[node name="Background7" type="Sprite2D" parent="Background" unique_id=601637218]
+position = Vector2(3090, -516)
+texture = ExtResource("2_gmj0l")
+
+[node name="Background8" type="Sprite2D" parent="Background" unique_id=1126562701]
+position = Vector2(3116, 518)
+texture = ExtResource("2_ught7")
+
+[node name="Background9" type="Sprite2D" parent="Background" unique_id=1075032334]
+position = Vector2(2417, -516)
+texture = ExtResource("2_gmj0l")
+
+[node name="Background10" type="Sprite2D" parent="Background" unique_id=879163637]
+position = Vector2(2540, 519)
+texture = ExtResource("2_ught7")
+
+[node name="Background11" type="Sprite2D" parent="Background" unique_id=423494429]
+position = Vector2(1741, -516)
+texture = ExtResource("2_gmj0l")
+
+[node name="Background12" type="Sprite2D" parent="Background" unique_id=1325519342]
+position = Vector2(1736, 519)
+texture = ExtResource("2_ught7")
+
+[node name="Buildings" type="Node" parent="." unique_id=994832484]
+
+[node name="Building1" parent="Buildings" unique_id=1394115421 instance=ExtResource("6_k6iwq")]
+position = Vector2(-642, -364)
+
+[node name="Building1Reflection" parent="Buildings/Building1" unique_id=261711097 instance=ExtResource("6_n1beo")]
+position = Vector2(153.33313, 959.9999)
+scale = Vector2(1, 0.99999994)
+skew = -0.3490659
+
+[node name="Building2" parent="Buildings" unique_id=1257214318 instance=ExtResource("4_ught7")]
+position = Vector2(9, -362)
+
+[node name="Building2Reflection" parent="Buildings/Building2" unique_id=355919085 instance=ExtResource("8_godh2")]
+position = Vector2(180.00006, 1006.6665)
+scale = Vector2(1, 0.99999994)
+skew = -0.3490659
+
+[node name="Building3" parent="Buildings" unique_id=1513611816 instance=ExtResource("5_uirbm")]
+position = Vector2(680, -354)
+
+[node name="Building3Reflection" parent="Buildings/Building3" unique_id=1410505061 instance=ExtResource("10_o85g7")]
+position = Vector2(143.33374, 926.6665)
+scale = Vector2(1, 0.99999994)
+skew = -0.3490659
+
+[node name="Building4" parent="Buildings" unique_id=469002689 instance=ExtResource("8_n1beo")]
+position = Vector2(1291, -352)
+
+[node name="Building4Reflection" parent="Buildings/Building4" unique_id=1479956784 instance=ExtResource("12_gmj0l")]
+position = Vector2(16.666588, 513.3334)
+scale = Vector2(1, 0.99999994)
+skew = -0.3490659
+
 [node name="Player" parent="." unique_id=1258507066 groups=["player"] instance=ExtResource("3_l2hsd")]
-position = Vector2(-964, -769)
+top_level = true
+position = Vector2(-1020, -111.000015)
+walk_speed = 400.0
+run_speed = 650.0
+deceleration = 0.2
+jump_force = -800.0
+dash_speed = 2000.0
+dash_max_distance = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=198579344]
+zoom = Vector2(0.3, 0.3)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Buildings" type="Node" parent="." unique_id=994832484]
-
-[node name="Building1" parent="Buildings" unique_id=1394115421 instance=ExtResource("6_k6iwq")]
-position = Vector2(-751, -264)
-
-[node name="Building1Reflection" parent="Buildings/Building1" unique_id=261711097 instance=ExtResource("6_n1beo")]
-position = Vector2(130, 968)
-scale = Vector2(1, 1)
-skew = -0.286234
-
-[node name="Building2" parent="Buildings" unique_id=1257214318 instance=ExtResource("4_ught7")]
-position = Vector2(-224, -266)
-
-[node name="Building2Reflection" parent="Buildings/Building2" unique_id=959781850 instance=ExtResource("8_godh2")]
-position = Vector2(138, 1030)
-scale = Vector2(1, 1)
-skew = -0.286234
-
-[node name="Building3" parent="Buildings" unique_id=1513611816 instance=ExtResource("5_uirbm")]
-position = Vector2(313, -258)
-
-[node name="Building3Reflection" parent="Buildings/Building3" unique_id=120763021 instance=ExtResource("10_o85g7")]
-position = Vector2(142, 964)
-scale = Vector2(1, 1)
-skew = -0.286234
-
-[node name="Building4" parent="Buildings" unique_id=469002689 instance=ExtResource("8_n1beo")]
-position = Vector2(780, -259)
-
-[node name="Building4Reflection" parent="Buildings/Building4" unique_id=1413105036 instance=ExtResource("12_gmj0l")]
-position = Vector2(22, 530)
-scale = Vector2(1, 1)
-skew = -0.286234
-
 [node name="FinishLine" parent="." unique_id=2137915762 instance=ExtResource("6_to3vu")]
-position = Vector2(1299, -132)
+top_level = true
+position = Vector2(3316, -72)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=446249026]
+stream = ExtResource("14_o85g7")
+autoplay = true
+script = ExtResource("15_gmj0l")

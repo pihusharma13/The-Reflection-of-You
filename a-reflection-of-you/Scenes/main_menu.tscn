@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bq5bpjp54pks" path="res://Assets/Main Screen/start_reflection_sprite_sheet.png" id="1_28flt"]
 [ext_resource type="Script" uid="uid://k7rt4xyijfeo" path="res://Scripts/main_menu.gd" id="1_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://bmdajdx2d02ql" path="res://Assets/Main Screen/reflection.png" id="2_ce3w2"]
+[ext_resource type="AudioStream" uid="uid://cu6eva0e0s5up" path="res://Assets/Audio/Mainmenunya!.wav" id="5_n45e2"]
+[ext_resource type="Script" uid="uid://n7f6w2jxhgcc" path="res://Scripts/music_player.gd" id="6_opfnp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
 texture = ExtResource("1_1ehe0")
@@ -136,5 +138,10 @@ position = Vector2(20.030602, -3.9155731)
 scale = Vector2(0.20974454, 1.1187392)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"start button"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1552610231]
+stream = ExtResource("5_n45e2")
+autoplay = true
+script = ExtResource("6_opfnp")
 
 [connection signal="pressed" from="Button" to="." method="_on_start_button_pressed"]

@@ -2,14 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cyqlqwq14qxrt" path="res://Scripts/PlayerController.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dyw248aoocbao" path="res://Assets/Brackeys Sprite/knight.png" id="2_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://bpc1syjy7oq5p" path="res://Assets/PlayerSpriteSheet.png" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://bi28uvngvqy0a" path="res://Assets/PlayerSprite/Frame1.png" id="3_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://ccleyhdlrlcyf" path="res://Assets/PlayerSprite/Frame2.png" id="4_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://cekeqapc6pur8" path="res://Assets/PlayerSprite/Frame3.png" id="5_gymyn"]
+[ext_resource type="Texture2D" uid="uid://b41cby6i1m8qp" path="res://Assets/PlayerSprite/Frame4.png" id="6_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://cgvwktjfypm67" path="res://Assets/PlayerSprite/Frame5.png" id="7_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://bojx22a1ywctr" path="res://Assets/PlayerSprite/Frame6.png" id="8_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://dkj42vw43yjt0" path="res://Assets/PlayerSprite/Frame7.png" id="9_h4iuc"]
 
 [sub_resource type="Curve" id="Curve_ypfnu"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.43776822), -1.9481581, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(13, 19)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36dho"]
+radius = 105.0
+height = 435.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("2_6t5aa")
@@ -28,36 +35,32 @@ atlas = ExtResource("2_6t5aa")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("3_f1ek2")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfarp"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("4_tx1dd")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6uwr"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("5_gymyn")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83xs0"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(0, 32, 32, 32)
+atlas = ExtResource("6_pu2lt")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ypfnu"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(32, 32, 32, 32)
+atlas = ExtResource("7_ukyrk")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuaoq"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(64, 32, 32, 32)
+atlas = ExtResource("8_7dp3o")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wohnl"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_36dho"]
-atlas = ExtResource("3_6t5aa")
-region = Rect2(32, 64, 32, 32)
+atlas = ExtResource("9_h4iuc")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
 atlas = ExtResource("2_6t5aa")
@@ -179,13 +182,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wohnl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_36dho")
 }],
 "loop": 1,
 "name": &"player_run",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -259,13 +259,14 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1258507066]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_cvnsp")
 dash_curve = SubResource("Curve_ypfnu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1686822830]
-position = Vector2(-0.5, 4.5)
-shape = SubResource("RectangleShape2D_g4v7s")
+position = Vector2(-3, -3)
+shape = SubResource("CapsuleShape2D_36dho")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=119086545]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"idle"
+animation = &"player_run"

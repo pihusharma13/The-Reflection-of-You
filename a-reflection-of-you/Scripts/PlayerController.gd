@@ -15,8 +15,9 @@ extends CharacterBody2D
  
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
  
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
- 
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var gravity : float = 1000
+
 var is_dashing = false
 var dash_start_position = 0
 var dash_direction = 0
@@ -35,14 +36,12 @@ func _physics_process(delta):
  
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("left", "right")
+	
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * speed, speed * acceleration)
 		animated_sprite.flip_h = direction == -1
 		if is_on_floor():
-			if Input.is_action_pressed("run"):
-				animated_sprite.play("run")
-			else:
-				animated_sprite.play("walk")
+			animated_sprite.play("player_run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, walk_speed * deceleration)
 		if is_on_floor():
