@@ -14,6 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://dx61ffm28jnan" path="res://Scenes/Prefabs/building_3_reflection.tscn" id="10_o85g7"]
 [ext_resource type="PackedScene" uid="uid://drwmluyaa5f08" path="res://Scenes/Prefabs/building_4_reflection.tscn" id="12_gmj0l"]
 [ext_resource type="Script" uid="uid://dd40tv8ehx5ht" path="res://Scenes/fade_in.gd" id="14_o85g7"]
+[ext_resource type="Texture2D" uid="uid://sai5clpdgk5x" path="res://Assets/Bush Reflection.png" id="15_edlht"]
+[ext_resource type="Texture2D" uid="uid://cr83p4ijoa7m5" path="res://Assets/Bush.png" id="16_ea2n0"]
+[ext_resource type="Texture2D" uid="uid://cwt6nqvealndd" path="res://Assets/cloud1.png" id="18_cj1sq"]
+[ext_resource type="Shader" uid="uid://cxi8qkq3qukph" path="res://Scenes/sine_distortion.gdshader" id="19_67nl6"]
+[ext_resource type="Texture2D" uid="uid://cyi4n0k6qmxgf" path="res://Assets/cloud2.png" id="19_kv7kt"]
+[ext_resource type="Shader" uid="uid://dyygjbo0k6jrk" path="res://Scenes/test.gdshader" id="20_cj1sq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmj0l"]
 size = Vector2(10000000, 0.01)
@@ -24,6 +30,26 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o85g7"]
 font_size = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cj1sq"]
+shader = ExtResource("19_67nl6")
+shader_parameter/frequency = 100.0
+shader_parameter/strength = 0.002
+shader_parameter/speed = 5.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cj1sq"]
+noise_type = 3
+frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kv7kt"]
+noise = SubResource("FastNoiseLite_cj1sq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofhou"]
+shader = ExtResource("20_cj1sq")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_kv7kt")
+shader_parameter/smoke_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/distortion_speed = 0.10000000475
+shader_parameter/density = 0.10000000475
 
 [node name="Pilot Level" type="Node2D" unique_id=170259849]
 
@@ -52,6 +78,7 @@ scale = Vector2(14.947389, -0.2274217)
 color = Color(0.08124801, 0.67070794, 0.71896654, 1)
 
 [node name="Background" type="Node2D" parent="." unique_id=954104680]
+z_index = -2
 scale = Vector2(1, 1.7600002)
 
 [node name="Background1" type="Sprite2D" parent="Background" unique_id=1745110225]
@@ -464,9 +491,9 @@ texture = ExtResource("2_ught7")
 
 [node name="ColorRect" type="ColorRect" parent="Background" unique_id=877596145]
 offset_left = -4801.0
-offset_top = -1603.4089
+offset_top = -4286.9307
 offset_right = -4761.0
-offset_bottom = -1563.4089
+offset_bottom = -4061.6567
 scale = Vector2(1172.0511, 14.484072)
 color = Color(0.9019608, 0.9019608, 1, 1)
 
@@ -474,7 +501,7 @@ color = Color(0.9019608, 0.9019608, 1, 1)
 offset_left = -4801.0
 offset_top = 1029.5453
 offset_right = -4761.0
-offset_bottom = 1069.5453
+offset_bottom = 1238.5131
 scale = Vector2(1172.0511, 14.484072)
 color = Color(0.23921569, 0.2627451, 0.69803923, 1)
 
@@ -484,7 +511,11 @@ color = Color(0.23921569, 0.2627451, 0.69803923, 1)
 position = Vector2(-479.99988, 7.3333435)
 scale = Vector2(0.7, 0.6999999)
 
-[node name="Building4Reflection2" parent="Buildings" unique_id=261711097 instance=ExtResource("12_gmj0l")]
+[node name="Building4Reflection3" parent="Buildings" unique_id=261711097 instance=ExtResource("12_gmj0l")]
+position = Vector2(12827.001, 466)
+scale = Vector2(0.7, 0.6999999)
+
+[node name="Building4Reflection2" parent="Buildings" unique_id=845399437 instance=ExtResource("12_gmj0l")]
 position = Vector2(2710, 7.3333435)
 scale = Vector2(0.7, 0.6999999)
 
@@ -492,9 +523,23 @@ scale = Vector2(0.7, 0.6999999)
 position = Vector2(-1348.1428, 890.7146)
 scale = Vector2(2, 1.9999999)
 
+[node name="Building3Reflection2" parent="Buildings" unique_id=2073249960 instance=ExtResource("10_o85g7")]
+position = Vector2(7604, 890.7146)
+scale = Vector2(2, 1.9999999)
+
 [node name="Building2Reflection" parent="Buildings" unique_id=355919085 instance=ExtResource("8_godh2")]
 position = Vector2(99, 342.66656)
 scale = Vector2(-0.7, 0.7)
+
+[node name="Building2Reflection2" parent="Buildings" unique_id=1732069349 instance=ExtResource("8_godh2")]
+position = Vector2(5420, 363.99997)
+
+[node name="Building2Reflection3" parent="Buildings" unique_id=561668278 instance=ExtResource("8_godh2")]
+position = Vector2(14777, 364)
+
+[node name="Building2Reflection4" parent="Buildings" unique_id=1132648327 instance=ExtResource("8_godh2")]
+position = Vector2(29564, 1024)
+scale = Vector2(-1, 2)
 
 [node name="Building1Reflection" parent="Buildings" unique_id=1911069500 instance=ExtResource("6_n1beo")]
 position = Vector2(915, 325)
@@ -508,16 +553,60 @@ scale = Vector2(0.7, 0.6999999)
 position = Vector2(3106, 647)
 scale = Vector2(0.7, 1.4)
 
+[node name="Building1Reflection5" parent="Buildings" unique_id=443432960 instance=ExtResource("6_n1beo")]
+position = Vector2(17246, 939)
+scale = Vector2(0.7, 2)
+
+[node name="Building1Reflection6" parent="Buildings" unique_id=1412248004 instance=ExtResource("6_n1beo")]
+position = Vector2(6394, 465)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection8" parent="Buildings" unique_id=391134166 instance=ExtResource("6_n1beo")]
+position = Vector2(8972, 465)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection10" parent="Buildings" unique_id=877220966 instance=ExtResource("6_n1beo")]
+position = Vector2(12025, 465)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection12" parent="Buildings" unique_id=949631609 instance=ExtResource("6_n1beo")]
+position = Vector2(18972, 465)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection15" parent="Buildings" unique_id=223137747 instance=ExtResource("6_n1beo")]
+position = Vector2(17756, 465)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection14" parent="Buildings" unique_id=2029168231 instance=ExtResource("6_n1beo")]
+position = Vector2(19909, 465)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection16" parent="Buildings" unique_id=443450962 instance=ExtResource("6_n1beo")]
+position = Vector2(36302, 465)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection11" parent="Buildings" unique_id=72025386 instance=ExtResource("6_n1beo")]
+position = Vector2(13913, 465)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection13" parent="Buildings" unique_id=700185660 instance=ExtResource("6_n1beo")]
+position = Vector2(15583, 561)
+scale = Vector2(0.7, 1.2)
+
 [node name="Building1Reflection4" parent="Buildings" unique_id=9286454 instance=ExtResource("6_n1beo")]
 position = Vector2(4040, 651)
 scale = Vector2(0.7, 1.4)
 
-[node name="Building1Reflection5" parent="Buildings" unique_id=930778999 instance=ExtResource("6_n1beo")]
-position = Vector2(4506, 1023)
-scale = Vector2(0.7, 2.2)
-
 [node name="Building1" parent="Buildings" unique_id=1394115421 instance=ExtResource("6_k6iwq")]
 position = Vector2(915, -712)
+scale = Vector2(0.7, 1.4)
+
+[node name="Building19" parent="Buildings" unique_id=250077389 instance=ExtResource("6_k6iwq")]
+position = Vector2(12028, -712)
+scale = Vector2(0.7, 1.4)
+
+[node name="Building22" parent="Buildings" unique_id=1768144588 instance=ExtResource("6_k6iwq")]
+position = Vector2(13911, -712)
 scale = Vector2(0.7, 1.4)
 
 [node name="Building5" parent="Buildings" unique_id=1095995824 instance=ExtResource("6_k6iwq")]
@@ -531,23 +620,200 @@ scale = Vector2(0.7, 1)
 position = Vector2(3104, -513)
 scale = Vector2(0.7, 1)
 
-[node name="Building8" parent="Buildings" unique_id=376059597 instance=ExtResource("6_k6iwq")]
-position = Vector2(4507, -513)
+[node name="Building9" parent="Buildings" unique_id=1305982116 instance=ExtResource("6_k6iwq")]
+position = Vector2(6393, -352.00006)
+
+[node name="Building21" parent="Buildings" unique_id=1528131021 instance=ExtResource("6_k6iwq")]
+position = Vector2(12791, -513)
 scale = Vector2(0.7, 1)
+
+[node name="Building24" parent="Buildings" unique_id=162119278 instance=ExtResource("6_k6iwq")]
+position = Vector2(15583, -1318)
+scale = Vector2(0.7, 1)
+
+[node name="Building26" parent="Buildings" unique_id=1470966961 instance=ExtResource("6_k6iwq")]
+position = Vector2(17247, -511)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection7" parent="Buildings" unique_id=2103512636 instance=ExtResource("6_n1beo")]
+position = Vector2(30667, 707)
+scale = Vector2(0.7, 1.5)
+
+[node name="Building1Reflection17" parent="Buildings" unique_id=83818949 instance=ExtResource("6_n1beo")]
+position = Vector2(35086, 884)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection9" parent="Buildings" unique_id=705688750 instance=ExtResource("6_n1beo")]
+position = Vector2(32832, 475)
+scale = Vector2(0.7, 1)
+
+[node name="Building1Reflection18" parent="Buildings" unique_id=1350267908 instance=ExtResource("6_n1beo")]
+position = Vector2(37934, 465)
+scale = Vector2(0.7, 1)
+
+[node name="Building36" parent="Buildings" unique_id=1517507332 instance=ExtResource("6_k6iwq")]
+position = Vector2(30668, -496)
+scale = Vector2(0.7, 1)
+
+[node name="Building42" parent="Buildings" unique_id=251935834 instance=ExtResource("6_k6iwq")]
+position = Vector2(37574, -496)
+scale = Vector2(0.7, 1)
+
+[node name="Building38" parent="Buildings" unique_id=870089603 instance=ExtResource("6_k6iwq")]
+position = Vector2(32832, -496)
+scale = Vector2(0.7, 1)
+
+[node name="Building39" parent="Buildings" unique_id=356970006 instance=ExtResource("6_k6iwq")]
+position = Vector2(33967, -1266)
+scale = Vector2(0.7, 2.5)
+
+[node name="Building41" parent="Buildings" unique_id=1901905757 instance=ExtResource("6_k6iwq")]
+position = Vector2(36304, -496)
+scale = Vector2(0.7, 1)
+
+[node name="Building27" parent="Buildings" unique_id=420160420 instance=ExtResource("6_k6iwq")]
+position = Vector2(18491, -513)
+scale = Vector2(0.7, 1)
+
+[node name="Building28" parent="Buildings" unique_id=1266817374 instance=ExtResource("6_k6iwq")]
+position = Vector2(19452, -513)
+scale = Vector2(0.7, 1)
+
+[node name="Building29" parent="Buildings" unique_id=255038356 instance=ExtResource("6_k6iwq")]
+position = Vector2(20390, -513)
+scale = Vector2(0.7, 1)
+
+[node name="Building31" parent="Buildings" unique_id=1053165535 instance=ExtResource("6_k6iwq")]
+position = Vector2(22414, -1025)
+scale = Vector2(0.7, 2)
 
 [node name="Building2" parent="Buildings" unique_id=1257214318 instance=ExtResource("4_ught7")]
 position = Vector2(119.99999, -362)
+
+[node name="Building20" parent="Buildings" unique_id=1089731381 instance=ExtResource("4_ught7")]
+position = Vector2(13350.999, -362)
+scale = Vector2(-0.7, 0.7)
 
 [node name="Building3" parent="Buildings" unique_id=1513611816 instance=ExtResource("5_uirbm")]
 position = Vector2(-1351, -995)
 scale = Vector2(2, 2)
 
+[node name="Building3Reflection14" parent="Buildings" unique_id=2034372354 instance=ExtResource("10_o85g7")]
+position = Vector2(39730.86, 890.7146)
+scale = Vector2(2, 1.9999999)
+
+[node name="Building40" parent="Buildings" unique_id=73295871 instance=ExtResource("5_uirbm")]
+position = Vector2(39728, -995)
+scale = Vector2(2, 2)
+
+[node name="Building3Reflection4" parent="Buildings" unique_id=598470983 instance=ExtResource("10_o85g7")]
+position = Vector2(4573.8574, 1111)
+scale = Vector2(2, 2.5)
+
+[node name="Building8" parent="Buildings" unique_id=1128889290 instance=ExtResource("5_uirbm")]
+position = Vector2(4571, -556)
+scale = Vector2(2, 1.1)
+
+[node name="Building3Reflection6" parent="Buildings" unique_id=841981230 instance=ExtResource("10_o85g7")]
+position = Vector2(23257.857, 1111)
+scale = Vector2(2, 2.5)
+
+[node name="Building3Reflection7" parent="Buildings" unique_id=1724719839 instance=ExtResource("10_o85g7")]
+position = Vector2(24961, 1124)
+scale = Vector2(2, 2.5)
+
+[node name="Building3Reflection9" parent="Buildings" unique_id=1697179800 instance=ExtResource("10_o85g7")]
+position = Vector2(27232, 676)
+scale = Vector2(2, 1.5)
+
+[node name="Building30" parent="Buildings" unique_id=1058936922 instance=ExtResource("5_uirbm")]
+position = Vector2(23255, -556)
+scale = Vector2(2, 1.1)
+
+[node name="Building32" parent="Buildings" unique_id=492510249 instance=ExtResource("5_uirbm")]
+position = Vector2(24480, -556)
+scale = Vector2(2, 1.1)
+
+[node name="Building33" parent="Buildings" unique_id=1438639144 instance=ExtResource("5_uirbm")]
+position = Vector2(26023, -983)
+scale = Vector2(2, 1.1)
+
+[node name="Building34" parent="Buildings" unique_id=1267606753 instance=ExtResource("5_uirbm")]
+position = Vector2(27226, -552)
+scale = Vector2(2, 1.1)
+
+[node name="Building10" parent="Buildings" unique_id=1183896406 instance=ExtResource("5_uirbm")]
+position = Vector2(7601, -501)
+scale = Vector2(2, 1)
+
+[node name="Building3Reflection3" parent="Buildings" unique_id=1885557197 instance=ExtResource("10_o85g7")]
+position = Vector2(9514, 656)
+scale = Vector2(2, 1.5)
+
+[node name="Building14" parent="Buildings" unique_id=1183387965 instance=ExtResource("5_uirbm")]
+position = Vector2(9511, -507)
+scale = Vector2(2, 1)
+
+[node name="Building3Reflection5" parent="Buildings" unique_id=1141983555 instance=ExtResource("10_o85g7")]
+position = Vector2(21638, 441)
+scale = Vector2(2, 1)
+
+[node name="Building3Reflection8" parent="Buildings" unique_id=367695447 instance=ExtResource("10_o85g7")]
+position = Vector2(26037, 453)
+scale = Vector2(2, 1)
+
+[node name="Building3Reflection10" parent="Buildings" unique_id=1047597836 instance=ExtResource("10_o85g7")]
+position = Vector2(28372, 998)
+scale = Vector2(2, 1)
+
+[node name="Building3Reflection12" parent="Buildings" unique_id=1140467031 instance=ExtResource("10_o85g7")]
+position = Vector2(31521, 459)
+scale = Vector2(2, 1)
+
+[node name="Building3Reflection13" parent="Buildings" unique_id=1417077528 instance=ExtResource("10_o85g7")]
+position = Vector2(34026, 459)
+scale = Vector2(3, 1)
+
+[node name="Building23" parent="Buildings" unique_id=688396232 instance=ExtResource("5_uirbm")]
+position = Vector2(21635, -507)
+scale = Vector2(2, 1)
+
 [node name="Building4" parent="Buildings" unique_id=469002689 instance=ExtResource("8_n1beo")]
 position = Vector2(-478.99988, -352)
 
+[node name="Building11" parent="Buildings" unique_id=863393361 instance=ExtResource("8_n1beo")]
+position = Vector2(7001, -352)
+
+[node name="Building12" parent="Buildings" unique_id=420751643 instance=ExtResource("8_n1beo")]
+position = Vector2(8341, -352)
+
+[node name="Building13" parent="Buildings" unique_id=1243932329 instance=ExtResource("8_n1beo")]
+position = Vector2(9028, -352)
+
+[node name="Building15" parent="Buildings" unique_id=342526199 instance=ExtResource("8_n1beo")]
+position = Vector2(10436, -807)
+
+[node name="Building16" parent="Buildings" unique_id=1646676650 instance=ExtResource("8_n1beo")]
+position = Vector2(11116, -877)
+
+[node name="Building18" parent="Buildings" unique_id=2105368324 instance=ExtResource("8_n1beo")]
+position = Vector2(10017, -354)
+
+[node name="Building25" parent="Buildings" unique_id=1738491203 instance=ExtResource("8_n1beo")]
+position = Vector2(16714, -1130)
+
+[node name="Building35" parent="Buildings" unique_id=1416986275 instance=ExtResource("8_n1beo")]
+position = Vector2(28380, -999)
+
+[node name="Building37" parent="Buildings" unique_id=1991614745 instance=ExtResource("8_n1beo")]
+position = Vector2(32223, -727)
+
+[node name="Building17" parent="Buildings" unique_id=263445448 instance=ExtResource("8_n1beo")]
+position = Vector2(11503, -1255)
+
 [node name="Player" parent="." unique_id=1258507066 groups=["player"] instance=ExtResource("3_l2hsd")]
 top_level = true
-position = Vector2(-1087, -645)
+position = Vector2(-938.99976, -68)
 collision_layer = 2
 walk_speed = 400.0
 run_speed = 650.0
@@ -557,7 +823,7 @@ dash_speed = 2000.0
 dash_max_distance = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=198579344]
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.18, 0.18)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -621,3 +887,145 @@ offset_right = 3966.0
 offset_bottom = -180.0
 text = "Use flipping to gain height!"
 label_settings = SubResource("LabelSettings_o85g7")
+
+[node name="Label6" type="Label" parent="." unique_id=2034533344]
+offset_left = 4862.0
+offset_top = -187.0
+offset_right = 6075.0
+offset_bottom = -118.0
+text = "Good luck! Try to get as good of a time as possible!"
+label_settings = SubResource("LabelSettings_o85g7")
+
+[node name="BushReflection" type="Sprite2D" parent="." unique_id=1043673365]
+z_index = -1
+position = Vector2(1806, 144)
+texture = ExtResource("15_edlht")
+
+[node name="BushReflection2" type="Sprite2D" parent="." unique_id=1539400493]
+z_index = -1
+position = Vector2(5862, 144)
+texture = ExtResource("15_edlht")
+
+[node name="Bush" type="Sprite2D" parent="." unique_id=129653629]
+z_index = -1
+position = Vector2(1833, -266)
+texture = ExtResource("16_ea2n0")
+
+[node name="BushReflection3" type="Sprite2D" parent="." unique_id=1797256617]
+z_index = -1
+position = Vector2(15801, 144)
+texture = ExtResource("15_edlht")
+
+[node name="Bush3" type="Sprite2D" parent="." unique_id=1501786162]
+z_index = -1
+position = Vector2(15828, -266)
+texture = ExtResource("16_ea2n0")
+
+[node name="BushReflection4" type="Sprite2D" parent="." unique_id=292488356]
+z_index = -1
+position = Vector2(29407, 144)
+texture = ExtResource("15_edlht")
+
+[node name="Bush4" type="Sprite2D" parent="." unique_id=545821137]
+z_index = -1
+position = Vector2(29434, -266)
+texture = ExtResource("16_ea2n0")
+
+[node name="BushReflection5" type="Sprite2D" parent="." unique_id=319281300]
+z_index = -1
+position = Vector2(36443, 144)
+texture = ExtResource("15_edlht")
+
+[node name="Bush5" type="Sprite2D" parent="." unique_id=1063194445]
+z_index = -1
+position = Vector2(36470, -266)
+texture = ExtResource("16_ea2n0")
+
+[node name="BushReflection6" type="Sprite2D" parent="." unique_id=1143361994]
+z_index = -1
+position = Vector2(22438, 144)
+texture = ExtResource("15_edlht")
+
+[node name="Bush6" type="Sprite2D" parent="." unique_id=1000232686]
+z_index = -1
+position = Vector2(22465, -266)
+texture = ExtResource("16_ea2n0")
+
+[node name="Bush2" type="Sprite2D" parent="." unique_id=1887948632]
+z_index = -1
+position = Vector2(5902, -266)
+texture = ExtResource("16_ea2n0")
+
+[node name="Cloud1" type="Sprite2D" parent="." unique_id=1751573359]
+z_index = 1
+position = Vector2(10383, -486)
+scale = Vector2(0.609375, 0.609375)
+texture = ExtResource("18_cj1sq")
+
+[node name="Cloud5" type="Sprite2D" parent="." unique_id=163100130]
+z_index = 1
+position = Vector2(16453, -895)
+texture = ExtResource("18_cj1sq")
+
+[node name="Cloud6" type="Sprite2D" parent="." unique_id=487617371]
+z_index = 1
+position = Vector2(26062, -551)
+texture = ExtResource("18_cj1sq")
+
+[node name="Cloud8" type="Sprite2D" parent="." unique_id=398181937]
+z_index = 1
+position = Vector2(28408, -551)
+texture = ExtResource("18_cj1sq")
+
+[node name="Cloud9" type="Sprite2D" parent="." unique_id=157570865]
+z_index = 1
+position = Vector2(31953, -473)
+texture = ExtResource("18_cj1sq")
+
+[node name="Cloud10" type="Sprite2D" parent="." unique_id=2061696470]
+z_index = 1
+position = Vector2(31953, -473)
+texture = ExtResource("18_cj1sq")
+
+[node name="Cloud3" type="Sprite2D" parent="." unique_id=1493584312]
+z_index = 1
+position = Vector2(12825, 440)
+scale = Vector2(0.609, -0.609)
+texture = ExtResource("18_cj1sq")
+
+[node name="Cloud7" type="Sprite2D" parent="." unique_id=70232342]
+z_index = 1
+position = Vector2(28387, 567)
+scale = Vector2(1, -1)
+texture = ExtResource("18_cj1sq")
+
+[node name="Cloud11" type="Sprite2D" parent="." unique_id=571498826]
+z_index = 1
+position = Vector2(35132, 465)
+scale = Vector2(1, -1)
+texture = ExtResource("18_cj1sq")
+
+[node name="Cloud2" type="Sprite2D" parent="." unique_id=896788168]
+z_index = 1
+position = Vector2(11303, -657)
+texture = ExtResource("19_kv7kt")
+
+[node name="Cloud4" type="Sprite2D" parent="." unique_id=686083602]
+z_index = 1
+position = Vector2(15757, -935)
+texture = ExtResource("19_kv7kt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=85041773]
+z_index = 2
+material = SubResource("ShaderMaterial_cj1sq")
+offset_left = -4790.0
+offset_right = 42139.0
+offset_bottom = 7202.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1648843521]
+z_index = -1
+material = SubResource("ShaderMaterial_ofhou")
+offset_left = -4790.0
+offset_top = -7126.0
+offset_right = 42139.0
+offset_bottom = 76.0
