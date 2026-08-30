@@ -31,6 +31,9 @@ var is_dashing = false
 var dash_start_position = 0
 var dash_direction = 0
 var dash_timer = 0
+
+signal dash
+signal reflect
  
 func _physics_process(delta):
 	# Add the gravity.
@@ -73,12 +76,14 @@ func _physics_process(delta):
  
 	# Dash activation
 	if Input.is_action_just_pressed("dash") and direction and not is_dashing and dash_timer <= 0:
+		dash.emit()
 		is_dashing = true
 		dash_start_position = position.x
 		dash_direction = direction
 		dash_timer = dash_cooldown
 	
 	if Input.is_action_just_pressed("reflect") and is_on_floor():
+		reflect.emit()
 		flip()
  
 	# Performs actual dash
@@ -97,6 +102,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 func flip() -> void:
+	var trail_particle = $GPUParticles2D
+	var img = trail_particle.texture.get_image()
+	img.flip_y()
+	trail_particle.texture = ImageTexture.create_from_image(img)
 	global_position.y = -(global_position.y - reflection_y) + reflection_y
 	up_direction.y *= -1
 	animated_sprite.flip_v = !animated_sprite.flip_v

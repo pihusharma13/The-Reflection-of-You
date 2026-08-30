@@ -1,13 +1,9 @@
 [gd_scene format=3 uid="uid://bkx0kixhom56c"]
 
-[ext_resource type="Texture2D" uid="uid://b2fru8a2j1psi" path="res://Assets/icon.svg" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://bq5bpjp54pks" path="res://Assets/Main Screen/start_reflection_sprite_sheet.png" id="1_28flt"]
 [ext_resource type="Script" uid="uid://k7rt4xyijfeo" path="res://Scripts/main_menu.gd" id="1_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://bmdajdx2d02ql" path="res://Assets/Main Screen/reflection.png" id="2_ce3w2"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
-texture = ExtResource("1_1ehe0")
-modulate_color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+[ext_resource type="Texture2D" uid="uid://bl6qqjbauntpu" path="res://Assets/Background 1.png" id="4_ce3w2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1dhk"]
 atlas = ExtResource("1_28flt")
@@ -89,7 +85,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6dk6o")
 }],
-"loop": 0,
+"loop": false,
 "name": &"start button",
 "speed": 15.0
 }]
@@ -102,15 +98,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ce3w2")
-
-[node name="Background" type="Panel" parent="." unique_id=832858584]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_g4v7s")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=1719354868]
 position = Vector2(322, 174)
@@ -137,5 +124,10 @@ position = Vector2(20.030602, -3.9155731)
 scale = Vector2(0.20974454, 1.1187392)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"start button"
+
+[node name="Background1" type="Sprite2D" parent="." unique_id=136510349]
+z_index = -1
+position = Vector2(319, 251)
+texture = ExtResource("4_ce3w2")
 
 [connection signal="pressed" from="Button" to="." method="_on_start_button_pressed"]

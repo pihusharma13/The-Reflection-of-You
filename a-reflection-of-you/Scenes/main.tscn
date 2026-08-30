@@ -324,6 +324,7 @@ position = Vector2(1632.8727, 181.15)
 
 [node name="Player" parent="." unique_id=1258507066 groups=["player"] instance=ExtResource("1_jjgbg")]
 position = Vector2(24.82203, 74.708015)
+floor_max_angle = 0.7853982
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=511566540]
 zoom = Vector2(1.5, 1.5)

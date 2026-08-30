@@ -176,7 +176,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fkybt")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -193,7 +193,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8gxox")
 }],
-"loop": 1,
+"loop": true,
 "name": &"player_idle",
 "speed": 10.0
 }, {
@@ -219,7 +219,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wohnl")
 }],
-"loop": 1,
+"loop": true,
 "name": &"player_run",
 "speed": 10.0
 }, {
@@ -272,7 +272,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_olqyp")
 }],
-"loop": 1,
+"loop": true,
 "name": &"run",
 "speed": 5.0
 }, {
@@ -289,13 +289,80 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p1odr")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukyrk"]
 size = Vector2(150, 150)
+
+[sub_resource type="Curve" id="Curve_ukyrk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7dp3o"]
+curve = SubResource("Curve_ukyrk")
+
+[sub_resource type="Curve" id="Curve_h4iuc"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fd4e3"]
+curve = SubResource("Curve_h4iuc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qqcod"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 0.19999999
+scale_max = 0.19999999
+alpha_curve = SubResource("CurveTexture_7dp3o")
+emission_curve = SubResource("CurveTexture_fd4e3")
+
+[sub_resource type="Gradient" id="Gradient_ukyrk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7dp3o"]
+gradient = SubResource("Gradient_ukyrk")
+
+[sub_resource type="Curve" id="Curve_fd4e3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qqcod"]
+curve = SubResource("Curve_fd4e3")
+
+[sub_resource type="Curve" id="Curve_igrcy"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fs7ks"]
+curve = SubResource("Curve_igrcy")
+
+[sub_resource type="Curve" id="Curve_l6n3p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.4681942), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_olqyp"]
+curve = SubResource("Curve_l6n3p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wpjfl"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 100.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 2000.0
+gravity = Vector3(0, 980, 0)
+scale_min = 0.19999999
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_olqyp")
+alpha_curve = SubResource("CurveTexture_qqcod")
+emission_curve = SubResource("CurveTexture_fs7ks")
 
 [node name="Player" type="CharacterBody2D" unique_id=1258507066]
 scale = Vector2(0.2, 0.2)
@@ -315,3 +382,24 @@ animation = &"player_run"
 [node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=499953462]
 shape = SubResource("RectangleShape2D_ukyrk")
 target_position = Vector2(0, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=786483972]
+emitting = false
+amount = 16
+texture = ExtResource("3_f1ek2")
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_qqcod")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=190994087]
+emitting = false
+amount = 16
+texture = SubResource("GradientTexture2D_7dp3o")
+one_shot = true
+explosiveness = 0.95
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_wpjfl")
+
+[connection signal="dash" from="." to="GPUParticles2D" method="set_emitting" binds= [true]]
+[connection signal="reflect" from="." to="GPUParticles2D2" method="restart"]
+[connection signal="reflect" from="." to="GPUParticles2D2" method="set_emitting" binds= [true]]
