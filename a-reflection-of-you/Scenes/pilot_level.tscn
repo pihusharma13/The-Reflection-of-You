@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://sai5clpdgk5x" path="res://Assets/Bush Reflection.png" id="15_edlht"]
 [ext_resource type="Texture2D" uid="uid://cr83p4ijoa7m5" path="res://Assets/Bush.png" id="16_ea2n0"]
 [ext_resource type="Texture2D" uid="uid://cwt6nqvealndd" path="res://Assets/cloud1.png" id="18_cj1sq"]
+[ext_resource type="Script" uid="uid://d1r6owuwg834q" path="res://Scenes/float.gd" id="18_kv7kt"]
 [ext_resource type="Shader" uid="uid://cxi8qkq3qukph" path="res://Scenes/sine_distortion.gdshader" id="19_67nl6"]
 [ext_resource type="Texture2D" uid="uid://cyi4n0k6qmxgf" path="res://Assets/cloud2.png" id="19_kv7kt"]
 [ext_resource type="Shader" uid="uid://dyygjbo0k6jrk" path="res://Scenes/test.gdshader" id="20_cj1sq"]
@@ -813,7 +814,7 @@ position = Vector2(11503, -1255)
 
 [node name="Player" parent="." unique_id=1258507066 groups=["player"] instance=ExtResource("3_l2hsd")]
 top_level = true
-position = Vector2(-938.99976, -68)
+position = Vector2(-925.99805, -54.000008)
 collision_layer = 2
 walk_speed = 400.0
 run_speed = 650.0
@@ -961,59 +962,70 @@ z_index = 1
 position = Vector2(10383, -486)
 scale = Vector2(0.609375, 0.609375)
 texture = ExtResource("18_cj1sq")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud5" type="Sprite2D" parent="." unique_id=163100130]
 z_index = 1
 position = Vector2(16453, -895)
 texture = ExtResource("18_cj1sq")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud6" type="Sprite2D" parent="." unique_id=487617371]
 z_index = 1
 position = Vector2(26062, -551)
 texture = ExtResource("18_cj1sq")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud8" type="Sprite2D" parent="." unique_id=398181937]
 z_index = 1
 position = Vector2(28408, -551)
 texture = ExtResource("18_cj1sq")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud9" type="Sprite2D" parent="." unique_id=157570865]
 z_index = 1
 position = Vector2(31953, -473)
 texture = ExtResource("18_cj1sq")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud10" type="Sprite2D" parent="." unique_id=2061696470]
 z_index = 1
 position = Vector2(31953, -473)
 texture = ExtResource("18_cj1sq")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud3" type="Sprite2D" parent="." unique_id=1493584312]
 z_index = 1
 position = Vector2(12825, 440)
 scale = Vector2(0.609, -0.609)
 texture = ExtResource("18_cj1sq")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud7" type="Sprite2D" parent="." unique_id=70232342]
 z_index = 1
 position = Vector2(28387, 567)
 scale = Vector2(1, -1)
 texture = ExtResource("18_cj1sq")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud11" type="Sprite2D" parent="." unique_id=571498826]
 z_index = 1
 position = Vector2(35132, 465)
 scale = Vector2(1, -1)
 texture = ExtResource("18_cj1sq")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud2" type="Sprite2D" parent="." unique_id=896788168]
 z_index = 1
 position = Vector2(11303, -657)
 texture = ExtResource("19_kv7kt")
+script = ExtResource("18_kv7kt")
 
 [node name="Cloud4" type="Sprite2D" parent="." unique_id=686083602]
 z_index = 1
 position = Vector2(15757, -935)
 texture = ExtResource("19_kv7kt")
+script = ExtResource("18_kv7kt")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=85041773]
 z_index = 2
