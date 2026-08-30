@@ -10,6 +10,8 @@ size = Vector2(240, 116)
 script = ExtResource("1_fpin6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=770453290]
+light_mask = 1023
+visibility_layer = 1023
 position = Vector2(10, -12)
 shape = SubResource("RectangleShape2D_3e5oy")
 

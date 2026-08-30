@@ -7,6 +7,7 @@ extends Control
 
 func _ready() -> void:
 	get_tree().paused = false
+	MusicPlayer.play_game_music()
 	finish_line.player_finish.connect(_on_player_finished)
 	
 	win_screen.visible = false

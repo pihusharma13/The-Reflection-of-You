@@ -2,15 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dfx4v0xqtbhuf" path="res://Assets/Building 3 Reflection.png" id="1_dowxg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k87h4"]
-size = Vector2(232, 854)
-
 [node name="Building3Reflection" type="StaticBody2D" unique_id=261711097]
 scale = Vector2(0.7, 0.7)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1306608680]
 texture = ExtResource("1_dowxg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1578872455]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=379710885]
 position = Vector2(-12, -21)
-shape = SubResource("RectangleShape2D_k87h4")
+polygon = PackedVector2Array(114.85714, -423.28568, -100.85714, -426.14282, -102.285706, 422.42856, 121.99999, 425.28568)
