@@ -26,7 +26,7 @@ offset_left = 513.0
 offset_top = 2.0
 offset_right = 639.0
 offset_bottom = 44.0
-color = Color(0.99999994, 0.19795933, 0.25932392, 0.18431373)
+color = Color(6.016344e-08, 0.081009276, 0.12306116, 0.7647059)
 
 [node name="Label" type="Label" parent="CanvasLayer/ColorRect" unique_id=1294897460]
 layout_mode = 0

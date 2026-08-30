@@ -64,7 +64,7 @@ shape = SubResource("RectangleShape2D_gmj0l")
 [node name="Ground" type="ColorRect" parent="StaticBody2D" unique_id=125551898]
 offset_left = -1200.0
 offset_top = 4.0
-offset_right = -900.0
+offset_right = 1300.0
 offset_bottom = 44.000004
 scale = Vector2(23.174902, -0.23999754)
 color = Color(0.62652254, 0.97963315, 0.7079042, 1)
@@ -72,7 +72,7 @@ color = Color(0.62652254, 0.97963315, 0.7079042, 1)
 [node name="Water" type="ColorRect" parent="StaticBody2D" unique_id=1806848426]
 offset_left = -1200.0
 offset_top = 6.0
-offset_right = -900.0
+offset_right = 1800.0
 offset_bottom = 46.0
 scale = Vector2(14.947389, -0.2274217)
 color = Color(0.08124801, 0.67070794, 0.71896654, 1)
@@ -538,7 +538,7 @@ position = Vector2(5420, 363.99997)
 position = Vector2(14777, 364)
 
 [node name="Building2Reflection4" parent="Buildings" unique_id=1132648327 instance=ExtResource("8_godh2")]
-position = Vector2(29564, 1024)
+position = Vector2(29564, 1033)
 scale = Vector2(-1, 2)
 
 [node name="Building1Reflection" parent="Buildings" unique_id=1911069500 instance=ExtResource("6_n1beo")]
