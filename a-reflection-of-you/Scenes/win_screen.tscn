@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6x4r4nwgtvca"]
 
 [ext_resource type="Script" uid="uid://b46mprhvvptc8" path="res://Scripts/end_screen.gd" id="1_l5sol"]
+[ext_resource type="LabelSettings" uid="uid://bgdwnk8h6g2k3" path="res://Assets/label_font.tres" id="2_a00f1"]
 
 [node name="WinScreen" type="Control" unique_id=1383709395]
 layout_mode = 3
@@ -18,10 +19,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -153.5
-offset_top = -107.0
-offset_right = 153.5
-offset_bottom = 107.0
+offset_left = -170.75
+offset_top = -129.5
+offset_right = 170.75
+offset_bottom = 129.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1436629, 0.84953654, 0.8599092, 1)
@@ -33,10 +34,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -138.0
-offset_top = -97.0
-offset_right = 138.0
-offset_bottom = 97.0
+offset_left = -147.0
+offset_top = -106.5
+offset_right = 147.0
+offset_bottom = 106.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.189657, 0.41994825, 1)
@@ -48,20 +49,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = 14.0
-offset_right = 61.0
-offset_bottom = 45.0
+offset_left = -53.0
+offset_top = 25.0
+offset_right = 60.0
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Main Menu"
 
 [node name="Button2" type="Button" parent="." unique_id=429969558]
 layout_mode = 0
-offset_left = 301.5
-offset_top = 238.5
-offset_right = 351.5
-offset_bottom = 269.5
+offset_left = 300.0
+offset_top = 242.0
+offset_right = 350.0
+offset_bottom = 273.0
 text = "Retry"
 
 [node name="Label" type="Label" parent="." unique_id=40334215]
@@ -69,12 +70,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -37.0
-offset_top = 103.0
-offset_right = 37.0
-offset_bottom = 126.0
+offset_left = -54.0
+offset_top = 87.0
+offset_right = 55.0
+offset_bottom = 117.0
 grow_horizontal = 2
 text = "You Win!"
+label_settings = ExtResource("2_a00f1")
 
 [node name="Label2" type="Label" parent="." unique_id=1788839259]
 layout_mode = 1
@@ -83,13 +85,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -106.0
-offset_top = -49.0
-offset_right = 112.5
-offset_bottom = 7.0
+offset_left = -156.0
+offset_top = -68.0
+offset_right = 151.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "You finished with 20.00 seconds remaining"
+label_settings = ExtResource("2_a00f1")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

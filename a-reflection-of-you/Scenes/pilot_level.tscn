@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://drwmluyaa5f08" path="res://Scenes/Prefabs/building_4_reflection.tscn" id="12_gmj0l"]
 [ext_resource type="Script" uid="uid://dd40tv8ehx5ht" path="res://Scenes/fade_in.gd" id="14_o85g7"]
 [ext_resource type="Texture2D" uid="uid://sai5clpdgk5x" path="res://Assets/Bush Reflection.png" id="15_edlht"]
+[ext_resource type="LabelSettings" uid="uid://bg2mhgawxw6hm" path="res://Assets/label_font_2.tres" id="15_kv7kt"]
 [ext_resource type="Texture2D" uid="uid://cr83p4ijoa7m5" path="res://Assets/Bush.png" id="16_ea2n0"]
 [ext_resource type="Texture2D" uid="uid://cwt6nqvealndd" path="res://Assets/cloud1.png" id="18_cj1sq"]
 [ext_resource type="Script" uid="uid://d1r6owuwg834q" path="res://Scenes/float.gd" id="18_kv7kt"]
@@ -24,13 +25,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmj0l"]
 size = Vector2(10000000, 0.01)
-
-[sub_resource type="LabelSettings" id="LabelSettings_gmj0l"]
-font_size = 50
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_o85g7"]
-font_size = 50
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cj1sq"]
 shader = ExtResource("19_67nl6")
@@ -849,13 +843,16 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("14_o85g7")
 
 [node name="Label2" type="Label" parent="." unique_id=723932927]
-offset_left = 1170.0
-offset_top = 45.0
-offset_right = 1988.0
-offset_bottom = 186.0
+offset_left = 1185.0
+offset_top = 40.0
+offset_right = 2028.0
+offset_bottom = 642.0
 text = "Flipping places you on the closest 
 area on the other side"
-label_settings = SubResource("LabelSettings_gmj0l")
+label_settings = ExtResource("15_kv7kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Label5" type="Label" parent="." unique_id=951034856]
 offset_left = 3929.0
@@ -863,39 +860,54 @@ offset_top = 1514.0
 offset_right = 4747.0
 offset_bottom = 1655.0
 text = "Flip again!"
-label_settings = SubResource("LabelSettings_gmj0l")
+label_settings = ExtResource("15_kv7kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Label" type="Label" parent="." unique_id=549036195]
-offset_left = 364.0
-offset_top = -245.0
-offset_right = 721.0
-offset_bottom = -176.0
+offset_left = 345.0
+offset_top = -422.0
+offset_right = 740.0
+offset_bottom = -62.0
 text = "Press [E] to flip"
-label_settings = SubResource("LabelSettings_o85g7")
+label_settings = ExtResource("15_kv7kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Label3" type="Label" parent="." unique_id=1484968210]
-offset_left = 1998.0
-offset_top = -1033.0
-offset_right = 2453.0
-offset_bottom = -964.0
+offset_left = 1951.0
+offset_top = -1291.0
+offset_right = 2497.0
+offset_bottom = -931.0
 text = "Press [Ctrl] to dash"
-label_settings = SubResource("LabelSettings_o85g7")
+label_settings = ExtResource("15_kv7kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Label4" type="Label" parent="." unique_id=755265412]
-offset_left = 3511.0
-offset_top = -249.0
-offset_right = 3966.0
-offset_bottom = -180.0
+offset_left = 3444.0
+offset_top = -416.0
+offset_right = 4163.0
+offset_bottom = -56.0
 text = "Use flipping to gain height!"
-label_settings = SubResource("LabelSettings_o85g7")
+label_settings = ExtResource("15_kv7kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Label6" type="Label" parent="." unique_id=2034533344]
-offset_left = 4862.0
-offset_top = -187.0
-offset_right = 6075.0
-offset_bottom = -118.0
+offset_left = 4882.0
+offset_top = -434.0
+offset_right = 6078.0
+offset_bottom = -74.0
 text = "Good luck! Try to get as good of a time as possible!"
-label_settings = SubResource("LabelSettings_o85g7")
+label_settings = ExtResource("15_kv7kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="BushReflection" type="Sprite2D" parent="." unique_id=1043673365]
 z_index = -1
