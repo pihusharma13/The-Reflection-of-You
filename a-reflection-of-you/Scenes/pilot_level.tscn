@@ -22,6 +22,8 @@
 [ext_resource type="Shader" uid="uid://cxi8qkq3qukph" path="res://Scenes/sine_distortion.gdshader" id="19_67nl6"]
 [ext_resource type="Texture2D" uid="uid://cyi4n0k6qmxgf" path="res://Assets/cloud2.png" id="19_kv7kt"]
 [ext_resource type="Shader" uid="uid://dyygjbo0k6jrk" path="res://Scenes/test.gdshader" id="20_cj1sq"]
+[ext_resource type="Script" uid="uid://cv5k1lrqhh5oe" path="res://Scenes/toggle.gd" id="22_2muqm"]
+[ext_resource type="Texture2D" uid="uid://ykgs3ytajmy5" path="res://Assets/Sprite-0011.png" id="24_458ha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmj0l"]
 size = Vector2(10000000, 0.01)
@@ -45,6 +47,8 @@ shader_parameter/noise_texture = SubResource("NoiseTexture2D_kv7kt")
 shader_parameter/smoke_color = Color(0.8, 0.8, 0.8, 1)
 shader_parameter/distortion_speed = 0.10000000475
 shader_parameter/density = 0.10000000475
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g7ev"]
 
 [node name="Pilot Level" type="Node2D" unique_id=170259849]
 
@@ -876,6 +880,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Label7" type="Label" parent="." unique_id=864417930]
+offset_left = -730.0
+offset_top = -805.0
+offset_right = -335.0
+offset_bottom = -445.0
+text = "Remove Shader"
+label_settings = ExtResource("15_kv7kt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Label3" type="Label" parent="." unique_id=1484968210]
 offset_left = 1951.0
 offset_top = -1291.0
@@ -1045,6 +1060,7 @@ material = SubResource("ShaderMaterial_cj1sq")
 offset_left = -4790.0
 offset_right = 42139.0
 offset_bottom = 7202.0
+script = ExtResource("22_2muqm")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1648843521]
 z_index = -1
@@ -1053,3 +1069,23 @@ offset_left = -4790.0
 offset_top = -7126.0
 offset_right = 42139.0
 offset_bottom = 76.0
+script = ExtResource("22_2muqm")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=660860505]
+position = Vector2(-533, -457.99997)
+scale = Vector2(3.0625, 3.0625)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Sprite0011" type="Sprite2D" parent="Area2D" unique_id=1639357693]
+position = Vector2(-0.6530613, 0.32652068)
+scale = Vector2(2, 2)
+texture = ExtResource("24_458ha")
+script = ExtResource("18_kv7kt")
+variation_amount = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1446635735]
+shape = SubResource("RectangleShape2D_6g7ev")
+
+[connection signal="body_entered" from="Area2D" to="ColorRect" method="toggle" unbinds=1]
+[connection signal="body_entered" from="Area2D" to="ColorRect2" method="toggle" unbinds=1]

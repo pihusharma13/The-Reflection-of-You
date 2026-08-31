@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 @export var variation_amount := 10.0
 @export var cycle := 2.0
