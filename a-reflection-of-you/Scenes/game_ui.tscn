@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://bxpeoxx8hw47h"]
 
-[ext_resource type="FontFile" uid="uid://bdy22mdycgiwt" path="res://Assets/pixel_3/pixel.ttf" id="1_bw2rt"]
 [ext_resource type="Script" uid="uid://cvnnyrom2calp" path="res://Scripts/game_ui.gd" id="1_x63ue"]
+[ext_resource type="LabelSettings" uid="uid://bgdwnk8h6g2k3" path="res://Assets/label_font.tres" id="2_1t2s1"]
 [ext_resource type="PackedScene" uid="uid://6x4r4nwgtvca" path="res://Scenes/win_screen.tscn" id="2_gjn1n"]
 [ext_resource type="Script" uid="uid://cd5iqnwl0cssc" path="res://Scripts/ui_timer.gd" id="2_xjnnq"]
 [ext_resource type="PackedScene" uid="uid://4q6jxxx12nho" path="res://Scenes/end_screen.tscn" id="3_xjnnq"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_suota"]
-font = ExtResource("1_bw2rt")
 
 [node name="GameUi" type="Control" unique_id=1264809656]
 layout_mode = 3
@@ -35,7 +32,7 @@ offset_top = 4.0
 offset_right = 100.0
 offset_bottom = 34.0
 text = "33:33"
-label_settings = SubResource("LabelSettings_suota")
+label_settings = ExtResource("2_1t2s1")
 script = ExtResource("2_xjnnq")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/ColorRect/Label" unique_id=644362981]
