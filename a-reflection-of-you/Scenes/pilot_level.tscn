@@ -859,10 +859,10 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Label5" type="Label" parent="." unique_id=951034856]
-offset_left = 3929.0
-offset_top = 1514.0
-offset_right = 4747.0
-offset_bottom = 1655.0
+offset_left = 3611.0
+offset_top = 1363.0
+offset_right = 4429.0
+offset_bottom = 1504.0
 text = "Flip again!"
 label_settings = ExtResource("15_kv7kt")
 horizontal_alignment = 1
